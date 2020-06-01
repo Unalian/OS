@@ -18,7 +18,7 @@ int communicate() {
         close(fd[1]); // close write pipe
         exit(0); // exit
     } else if (pid_1 > 0) {
-        waitpid(pid_1, NULL, 0); // wait process 1 do first
+        waitpid(pid_1, NULL, 0); // wait process child 1 do first
         if ((pid_2 = fork()) == 0) { // into the child process 2
             close(fd[0]); // close read pipe
             strcpy(msg_2, "Child process 2 is sending a message!\n");
